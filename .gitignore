@@ -1,3 +1,13 @@
 node_modules
-.serverless
+
+/public/build
+/server/index.mjs
+/server/index.mjs.map
+/server/metafile.*
+/server/version.txt
 .env
+
+/cypress/screenshots
+/cypress/videos
+
+.serverless
