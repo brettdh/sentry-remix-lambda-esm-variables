@@ -2,6 +2,27 @@ import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
 
+function baz() {
+  const localBaz = {
+    haveSome: "data",
+  };
+  throw new Error("boom");
+}
+
+function bar() {
+  const localBar = "what";
+  baz();
+}
+
+function foo() {
+  const localFoo = 42;
+  bar();
+}
+
+export function loader() {
+  foo();
+}
+
 export default function Index() {
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">

@@ -1,3 +1,28 @@
+# Sentry + Remix bug example
+
+## Steps to reproduce the issue
+1. Clone this repository
+2. Install and configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+   - Ensure your AWS IAM account has sufficient permissions to create resources in CloudFormation, CloudWatch, API Gateway, and Lambda.
+3. `npm install`
+4. Create a new Sentry project with the Remix integration
+4. Copy `.env.example` to `.env` and fill in your Sentry details
+5. `npm run deploy`
+6. `npm run curl` (this should return HTML containing the text "Something went wrong")
+7. Check Sentry for the error event and stack trace
+
+## Expected behavior
+All frames have local variables
+
+## Actual behavior
+Not all frames have local variables
+
+<br/>
+<br/>
+
+----
+_Original README content (from the Remix Grunge Stack) follows._
+
 # Remix Grunge Stack
 
 ![The Remix Grunge Stack](https://repository-images.githubusercontent.com/463325363/edae4f5b-1a13-47ea-b90c-c05badc2a700)

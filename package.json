@@ -4,7 +4,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix build --sourcemap && sentry-cli sourcemaps inject server public/build && sentry-cli sourcemaps upload server public/build",
+    "build": "remix build --sourcemap && sentry-upload-sourcemaps --org netscout-cct --project lambda-esm-variables --sourcemap && sentry-cli sourcemaps inject server public/build && sentry-cli sourcemaps upload server public/build",
     "curl": "curl $(serverless info --verbose | awk '/HttpApiUrl/ {print $2}')",
     "deploy": "serverless deploy",
     "dev": "remix dev",

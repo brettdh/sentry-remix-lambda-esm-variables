@@ -9,8 +9,13 @@ import { PassThrough } from "node:stream";
 import type { EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
+import * as Sentry from "@sentry/remix";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+
+export function handleError(error, { request }) {
+  Sentry.captureRemixServerException(error, "remix.server", request);
+}
 
 const ABORT_DELAY = 5_000;
 
